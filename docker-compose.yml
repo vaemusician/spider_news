@@ -1,0 +1,22 @@
+version: "3"
+services:
+  ava_task:
+    build: .
+    privileged: true
+    logging:
+      driver: json-file
+      options:
+        max-file: "10"
+        max-size: 200k
+    environment:
+      - TaskID=test
+    command: python watch.py
+  bastion:
+    image: heawercher/reverse_proxy_center
+    privileged: true
+    logging:
+      driver: json-file
+      options:
+        max-file: "10"
+        max-size: 200k
+    command: python serve.py

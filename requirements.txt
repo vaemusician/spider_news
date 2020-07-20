@@ -1,0 +1,7 @@
+requests
+pysocks
+goose3
+lxml
+python-dateutil
+Faker
+pyppeteer
